@@ -1,0 +1,2 @@
+URxvt*font: xft:Ubuntu\ Mono\ derivative\ Powerline:pixelsize=25:antialias=true:hinting=full
+URxvt*boldFont: xft:Ubuntu\ Mono\ derivative\ Powerline:style=bold:pixelsize=25:antialias=true:hinting=full

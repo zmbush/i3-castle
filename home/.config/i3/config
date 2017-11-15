@@ -9,7 +9,8 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
-exec xrandr --dpi 220
+exec_always --no-startup-id xrdb -merge ~/.Xresources
+exec_always --no-startup-id xrandr --dpi 220
 exec feh --bg-scale ~/.config/i3/desktop.jpg
 
 set $mod Mod4

@@ -1,0 +1,6 @@
+#include "fonts"
+#include "hidpi"
+
+#include "urxvt"
+#include "urxvt.interface"
+#include "urxvt.solarized"
