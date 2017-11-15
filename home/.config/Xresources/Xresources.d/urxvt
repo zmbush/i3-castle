@@ -1,2 +1,8 @@
-URxvt*font: xft:Ubuntu\ Mono\ derivative\ Powerline:pixelsize=25:antialias=true:hinting=full
-URxvt*boldFont: xft:Ubuntu\ Mono\ derivative\ Powerline:style=bold:pixelsize=25:antialias=true:hinting=full
+#ifdef LODPI
+#  define FONT_SIZE 12
+#else
+#  define FONT_SIZE 25
+#endif
+
+URxvt*font: xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=FONT_SIZE:antialias=true:hinting=full,xft:Ubuntu\ Mono\ derivative\ Powerline:pixelsize=FONT_SIZE:antialias=true:hinting=full
+URxvt*boldFont: xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=FONT_SIZE:antialiaz=true:hintig=full,xft:Ubuntu\ Mono\ derivative\ Powerline:style=bold:pixelsize=FONT_SIZE:antialias=true:hinting=full

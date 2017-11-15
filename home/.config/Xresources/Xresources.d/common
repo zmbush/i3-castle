@@ -1,5 +1,7 @@
 #include "fonts"
-#include "hidpi"
+#ifndef LODPI
+#   include "hidpi"
+#endif
 
 #include "urxvt"
 #include "urxvt.interface"
