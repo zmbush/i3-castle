@@ -1,0 +1,1 @@
+/home/zmbush/bin/i3scripts/autoname_workspaces.py

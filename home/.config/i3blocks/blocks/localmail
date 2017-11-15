@@ -1,0 +1,30 @@
+#!/bin/bash
+
+if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
+  echo "!"
+  echo "!"
+  echo ""
+
+  ALOT_RUNNING=$(ps cax | grep alot)
+  if [[ "${ALOT_RUNNING}" = "" ]]; then
+    nohup gnome-terminal --class=Alot -t Alot -e alot &
+  fi
+  i3-msg workspace number 9:Mail
+
+  exit
+fi
+
+URGENT_VALUE="20"
+UNREAD_COUNT=$(notmuch count tag:unread)
+
+if [[ "${UNREAD_COUNT}" = "" ]]; then
+  exit
+fi
+
+echo "${UNREAD_COUNT}"
+echo "${UNREAD_COUNT}"
+echo ""
+
+if [[ "${UNREAD_COUNT}" -ge URGENT_VALUE ]]; then
+  exit 33
+fi
