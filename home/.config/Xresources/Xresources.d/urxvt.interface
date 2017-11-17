@@ -2,7 +2,7 @@
 URxvt.depth:                32
 URxvt.geometry:             90x30
 URxvt.loginShell:           true
-URxvt.saveLines:            50
+URxvt.saveLines:            50000
 URxvt.internalBorder:       3
 URxvt.lineSpace:            0
 
