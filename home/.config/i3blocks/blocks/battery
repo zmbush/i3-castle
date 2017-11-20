@@ -7,19 +7,33 @@ BATTERY_POWER=$(echo "${BATTERY_INFO}" | grep -o '[0-9]\+%' | tr -d '%')
 
 URGENT_VALUE=10
 
-if [[ "${BATTERY_STATE}" = "Charging" ]]; then
-  echo "${BATTERY_POWER}%+"
-  echo "${BATTERY_POWER}%+"
-  echo ""
-elif [[ "${BATTERY_STATE}" = "Discharging" ]]; then
-  echo "${BATTERY_POWER}%-"
-  echo "${BATTERY_POWER}%-"
-  echo ""
-else
-  echo "${BATTERY_POWER}%"
-  echo "${BATTERY_POWER}%"
-  echo ""
+SYMBOLS=(
+  
+  
+  
+  
+  
+)
+
+if [[ "${BATTERY_POWER}" -le "10" ]]; then
+  SYMBOL=${SYMBOLS[0]}
+elif [[ "${BATTERY_POWER}" -le "25" ]]; then
+  SYMBOL=${SYMBOLS[1]}
+elif [[ "${BATTERY_POWER}" -le "50" ]]; then
+  SYMBOL=${SYMBOLS[2]}
+elif [[ "${BATTERY_POWER}" -le "75" ]]; then
+  SYMBOL=${SYMBOLS[3]}
+elif [[ "${BATTERY_POWER}" -gt "90" ]]; then
+  SYMBOL=${SYMBOLS[4]}
 fi
+
+if [[ "${BATTERY_STATE}" = "Charging" ]]; then
+  SYMBOL=" ${SYMBOL}"
+fi
+
+echo "${SYMBOL}${BATTERY_POWER}%"
+echo "${SYMBOL}${BATTERY_POWER}%"
+echo ""
 
 if [[ "${BATTERY_POWER}" -le "${URGENT_VALUE}" ]]; then
   exit 33

@@ -1,6 +1,16 @@
 #!/bin/bash
 
-IP_ADDRESS=$(ip route get 1 | awk '{print $NF;exit}')
+INSTANCE=${BLOCK_INSTANCE:local}
+
+if [[ "${INSTANCE}" = "remote" ]]; then
+  IP_ADDRESS=$(curl ifconfig.me/ip)
+else
+  IP_ADDRESS=$(ip route get 1 | awk '{print $NF;exit}')
+fi
+
+case $BLOCK_BUTTON in
+  2) echo "${IP_ADDRESS}" | xclip ;;
+esac
 
 if [[ "${IP_ADDRESS}" != "" ]]; then
   echo "${IP_ADDRESS}"

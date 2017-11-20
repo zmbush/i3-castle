@@ -69,6 +69,11 @@ interval=2
 #interval=10
 
 [ip-address]
+label=
+instance=remote
+interval=60
+
+[ip-address]
 label=
 interval=60
 

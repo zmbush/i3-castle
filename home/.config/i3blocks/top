@@ -6,9 +6,17 @@ markup=none
 label=
 interval=15
 
+[music]
+label=
+interval=5
+
 [audio]
 label=
 interval=5
+
+[localmail]
+label=
+interval=15
 
 [bluetooth]
 label=
@@ -18,12 +26,11 @@ interval=10
 label=
 interval=5
 
-[battery]
-label=
-instance=0
-interval=5
-
 [datetime]
 label=
 interval=5
 instance=%I:%M %P
+
+[battery]
+instance=0
+interval=5
