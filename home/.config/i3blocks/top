@@ -1,6 +1,6 @@
 command=~/.config/i3blocks/blocks/$BLOCK_NAME
 separator_block_width=15
-markup=none
+# markup=none
 
 [localmail]
 label=
@@ -14,12 +14,7 @@ interval=5
 label=
 interval=5
 
-[localmail]
-label=
-interval=15
-
 [bluetooth]
-label=
 interval=10
 
 [brightness]
@@ -34,3 +29,7 @@ instance=%I:%M %P
 [battery]
 instance=0
 interval=5
+
+[shutdown_menu]
+full_text=
+command=~/.config/i3blocks/blocks/shutdown_menu -c; echo 

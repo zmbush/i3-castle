@@ -2,19 +2,21 @@
 
 # Left click
 if [[ "${BLOCK_BUTTON}" -eq 1 ]]; then
-  sudo bluetooth on
-# Middle click
-elif [[ "${BLOCK_BUTTON}" -eq 2 ]]; then
-  sudo bluetooth toggle
-# Right click
-elif [[ "${BLOCK_BUTTON}" -eq 3 ]]; then
-  sudo bluetooth off
+  blueman-manager
 fi
 
-STATUS=$(bluetooth | grep -wo 'on')
+STATUS=$(bluetooth | grep -wo 'off\|on')
 
-if [[ "${STATUS}" = "on" ]]; then
-  echo "on"
-  echo "on"
-  echo ""
-fi
+ON=
+OFF=
+
+case "${STATUS}" in
+  "on")
+    echo "$ON"
+    echo "$ON"
+    echo "" ;;
+  "off")
+    echo "$OFF"
+    echo "$OFF"
+    echo "" ;;
+esac

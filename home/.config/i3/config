@@ -9,9 +9,29 @@
 #
 # Please see http://i3wm.org/docs/userguide.html for a complete reference!
 
+set_from_resource $darkred     URxvt.color1  #000000
+set_from_resource $red         URxvt.color9  #000000
+set_from_resource $darkgreen   URxvt.color2  #000000
+set_from_resource $green       URxvt.color10 #000000
+set_from_resource $darkyellow  URxvt.color3  #000000
+set_from_resource $yellow      URxvt.color11 #000000
+set_from_resource $darkblue    URxvt.color4  #000000
+set_from_resource $blue        URxvt.color12 #000000
+set_from_resource $darkmagenta URxvt.color5  #000000
+set_from_resource $magenta     URxvt.color13 #000000
+set_from_resource $darkcyan    URxvt.color6  #000000
+set_from_resource $cyan        URxvt.color14 #000000
+set_from_resource $darkwhite   URxvt.color7  #000000
+set_from_resource $white       URxvt.color15 #000000
+
+set $black       #282828
+set $darkblack   #1d2021
+set $transparent #00000000
+
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id xrandr --dpi 220
-exec feh --bg-scale ~/.config/i3/desktop.jpg
+exec_always --no-startup-id compton -CG
+exec feh --bg-scale ~/.config/i3/desktop.png
 
 set $mod Mod4
 
@@ -40,11 +60,12 @@ bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Shift+apostrophe kill
 
 # start dmenu (a program launcher)
-bindsym $mod+e exec dmenu_run
+bindsym $mod+e exec --no-startup-id "rofi -show run"
+bindsym $mod+Shift+e exec --no-startup-id "rofi -show drun"
+bindsym $mod+w exec --no-startup-id "rofi -show window"
 # There also is the (new) i3-dmenu-desktop which only displays applications
 # shipping a .desktop file. It is a wrapper around dmenu, so you need that
 # installed.
-bindsym $mod+Shift+e exec --no-startup-id i3-dmenu-desktop
 
 # change focus
 bindsym $mod+h focus left
@@ -125,6 +146,8 @@ assign [class="Thunderbird"] 9:Mail
 assign [instance="crx_icppfcnhkcmnfdhfhphakoifcfokfdhg"] 10:music
 assign [class="Alot"] 9:Mail
 
+for_window [class="URxvt" instance="nmtui"] floating enable
+
 # reload the configuration file
 bindsym $mod+Shift+j reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
@@ -165,13 +188,43 @@ bar {
 
   workspace_buttons no
   status_command i3blocks
+  i3bar_command i3bar -t
+  colors {
+    statusline         $white
+    background         $transparent
+    separator          $transparent
+
+    #                  BORDER       BACKGROUND   TEXT
+    focused_workspace  $transparent $transparent $darkcyan
+    inactive_workspace $transparent $transparent $white
+    active_workspace   $transparent $transparent $white
+    urgent_workspace   $darkred     $darkred     $transparent
+  }
 }
 
 bar {
   position top
 
   status_command i3blocks -c ~/.config/i3blocks/top
+  i3bar_command i3bar -t
+  colors {
+    statusline         $white
+    background         $transparent
+    separator          $transparent
+
+    #                  BORDER       BACKGROUND   TEXT
+    focused_workspace  $transparent $transparent $darkcyan
+    inactive_workspace $transparent $transparent $white
+    active_workspace   $transparent $transparent $white
+    urgent_workspace   $darkred     $darkred     $transparent
+  }
 }
+
+for_window [class="^.*$"] border pixel 3
+smart_gaps on
+smart_borders no_gaps
+gaps inner 20
+gaps outer 5
 
 # Pulse Audio controls
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
@@ -186,10 +239,10 @@ bindsym XF86MonBrightnessDown exec "light -U 5; notify-send -u low Brightness $(
 bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
 
 # Media player controls
-# bindsym XF86AudioPlay exec playerctl play
-# bindsym XF86AudioPause exec playerctl pause
-# bindsym XF86AudioNext exec playerctl next
-# bindsym XF86AudioPrev exec playerctl previous
+bindsym XF86AudioPlay exec mpc toggle
+bindsym XF86AudioPause exec mpc pause
+bindsym XF86AudioNext exec mpc next
+bindsym XF86AudioPrev exec mpc previous
 
 # Startup Applications
 exec env KEYBASE_START_UI=hideWindow run_keybase
@@ -201,3 +254,12 @@ exec --no-startup-id google-chrome
 exec --no-startup-id thunderbird
 exec --no-startup-id google-chrome --app-id=icppfcnhkcmnfdhfhphakoifcfokfdhg
 exec_always ~/.config/i3/i3-autoname-workspaces.py &
+
+# class                 border  backgr. text    indicator
+#
+#                       BORDER      BACKGROUND  TEXT        INDICATOR   CHILD_BORDER
+client.focused          $black      $black      $darkwhite  $darkblack  $darkblack
+client.unfocused        $black      $black      $white      $darkblack  $darkblack
+client.focused_inactive $black      $black      $white      $darkblack  $darkblack
+client.urgent           $darkred    $darkred    $black      $darkred    $darkred
+client.background       $black

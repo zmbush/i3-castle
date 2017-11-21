@@ -4,3 +4,5 @@ Xft.hinting: true
 Xft.hintstyle: hintfull
 Xft.lcdfilter: lcddefault
 Xft.rgba: rgb
+
+rofi.font: Ubuntu Mono 25

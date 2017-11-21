@@ -17,13 +17,13 @@ SYMBOLS=(
 
 if [[ "${BATTERY_POWER}" -le "10" ]]; then
   SYMBOL=${SYMBOLS[0]}
-elif [[ "${BATTERY_POWER}" -le "25" ]]; then
+elif [[ "${BATTERY_POWER}" -le "40" ]]; then
   SYMBOL=${SYMBOLS[1]}
-elif [[ "${BATTERY_POWER}" -le "50" ]]; then
+elif [[ "${BATTERY_POWER}" -le "70" ]]; then
   SYMBOL=${SYMBOLS[2]}
-elif [[ "${BATTERY_POWER}" -le "75" ]]; then
+elif [[ "${BATTERY_POWER}" -le "90" ]]; then
   SYMBOL=${SYMBOLS[3]}
-elif [[ "${BATTERY_POWER}" -gt "90" ]]; then
+elif [[ "${BATTERY_POWER}" -le "100" ]]; then
   SYMBOL=${SYMBOLS[4]}
 fi
 
@@ -31,8 +31,8 @@ if [[ "${BATTERY_STATE}" = "Charging" ]]; then
   SYMBOL=" ${SYMBOL}"
 fi
 
-echo "${SYMBOL}${BATTERY_POWER}%"
-echo "${SYMBOL}${BATTERY_POWER}%"
+echo "${SYMBOL} ${BATTERY_POWER}%"
+echo "${SYMBOL} ${BATTERY_POWER}%"
 echo ""
 
 if [[ "${BATTERY_POWER}" -le "${URGENT_VALUE}" ]]; then

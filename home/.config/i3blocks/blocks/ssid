@@ -2,6 +2,9 @@
 
 SSID_NAME=$(iwgetid -r)
 
+case $BLOCK_BUTTON in
+  1) urxvt -name nmtui -g 80x25-0-60 -e nmtui;;
+esac
 # You can put any urgent name so the block will give warning
 # if a network with this name is used, like public wifi or alike.
 # You can separate multiple values with \|
@@ -15,4 +18,8 @@ if [[ "${SSID_NAME}" != "" ]]; then
   if [[ "${URGENT_VALUE}" != "" ]] && [[ $(echo "${SSID_NAME}" | grep -we "${URGENT_VALUE}") != "" ]]; then
     exit 33
   fi
+else
+  echo "DISCONNECTED"
+  echo "DISCONNECTED"
+  echo ""
 fi
