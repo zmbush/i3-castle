@@ -15,6 +15,10 @@ SYMBOLS=(
   
 )
 
+if [[ "${BATTERY_POWER}" = "" ]]; then
+  exit
+fi
+
 if [[ "${BATTERY_POWER}" -le "10" ]]; then
   SYMBOL=${SYMBOLS[0]}
 elif [[ "${BATTERY_POWER}" -le "40" ]]; then

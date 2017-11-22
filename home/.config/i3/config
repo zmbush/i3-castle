@@ -29,7 +29,6 @@ set $darkblack   #1d2021
 set $transparent #00000000
 
 exec_always --no-startup-id xrdb -merge ~/.Xresources
-exec_always --no-startup-id xrandr --dpi 220
 exec_always --no-startup-id compton -CG
 exec feh --bg-scale ~/.config/i3/desktop.png
 
