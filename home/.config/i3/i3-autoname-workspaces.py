@@ -84,7 +84,7 @@ def icon_for_name(name):
     if name in WINDOW_ICONS:
         return WINDOW_ICONS[name]
     if name in fa.icons:
-        return fa.irons[name]
+        return fa.icons[name]
 
 
 def icon_for_window(window):
