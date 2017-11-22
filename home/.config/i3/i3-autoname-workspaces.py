@@ -51,7 +51,6 @@ WINDOW_ICONS = {
     'darktable': fa.icons['picture-o'],
     'evince': fa.icons['file-pdf-o'],
     'feh': fa.icons['picture-o'],
-    'firefox': fa.icons['firefox'],
     'google-chrome': fa.icons['chrome'],
     'google-chrome-beta': fa.icons['chrome'],
     'crx_icppfcnhkcmnfdhfhphakoifcfokfdhg': fa.icons['music'], # Google play music
@@ -60,7 +59,6 @@ WINDOW_ICONS = {
     'libreoffice': fa.icons['file-text-o'],
     'mupdf': fa.icons['file-pdf-o'],
     'spotify': fa.icons['music'],  # could also use the 'spotify' icon
-    'steam': fa.icons['steam'],
     'subl': fa.icons['file-text-o'],
     'subl3': fa.icons['file-text-o'],
     'thunar': fa.icons['files-o'],
@@ -80,6 +78,15 @@ WINDOW_ICONS = {
 DEFAULT_ICON = fa.icons['asterisk']
 
 
+def icon_for_name(name):
+    name = name.lower()
+
+    if name in WINDOW_ICONS:
+        return WINDOW_ICONS[name]
+    if name in fa.icons:
+        return fa.irons[name]
+
+
 def icon_for_window(window):
     # Try all window classes and use the first one we have an icon for
     classes = xprop(window.window, 'WM_CLASS')
@@ -87,14 +94,14 @@ def icon_for_window(window):
     logging.info(names)
     if names:
         for name in names:
-            name = name.lower().split(' ')[0]
-            if name in WINDOW_ICONS:
-                return WINDOW_ICONS[name]
+            icon = icon_for_name(name.split(' ')[0])
+            if icon:
+                return icon
     if classes:
         for cls in classes:
-            cls = cls.lower()  # case-insensitive matching
-            if cls in WINDOW_ICONS:
-                return WINDOW_ICONS[cls]
+            icon = icon_for_name(cls)
+            if icon:
+                return icon
 
     logging.info(
         'No icon available for window with classes: %s' % str(classes))
