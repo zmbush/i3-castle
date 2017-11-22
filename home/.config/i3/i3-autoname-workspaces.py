@@ -55,6 +55,7 @@ WINDOW_ICONS = {
     'google-chrome': fa.icons['chrome'],
     'google-chrome-beta': fa.icons['chrome'],
     'crx_icppfcnhkcmnfdhfhphakoifcfokfdhg': fa.icons['music'], # Google play music
+    'gmpc': fa.icons['music'],
     'gpick': fa.icons['eyedropper'],
     'libreoffice': fa.icons['file-text-o'],
     'mupdf': fa.icons['file-pdf-o'],
