@@ -1,5 +1,11 @@
 #!/bin/bash
 
+HAS_WIRELESS=$(iwconfig 2>&1 | grep -v 'no wireless' | tr -d ' ' | tr -d '\n')
+
+if [[ "${HAS_WIRELESS}" == "" ]]; then
+  exit
+fi
+
 SSID_NAME=$(iwgetid -r)
 
 case $BLOCK_BUTTON in
