@@ -30,7 +30,7 @@ set $transparent #00000000
 
 exec_always --no-startup-id xrdb -merge ~/.Xresources
 exec_always --no-startup-id compton -CG
-exec feh --bg-scale ~/.config/i3/desktop.png
+exec_always --no-startup-id feh --bg-scale ~/.config/i3/desktop.png
 
 set $mod Mod4
 
@@ -248,7 +248,7 @@ exec /usr/bin/syncthing -no-browser -home="$HOME/.config/syncthing"
 exec /usr/bin/syncthing-gtk
 
 exec --no-startup-id i3-msg 'workspace 1'
-exec --no-startup-id google-chrome
+exec --no-startup-id firefox
 exec --no-startup-id google-chrome --app-id=icppfcnhkcmnfdhfhphakoifcfokfdhg
 exec_always ~/.config/i3/i3-autoname-workspaces.py &
 
