@@ -1,5 +1,7 @@
 #ifdef LODPI
 #  define FONT_SIZE 14
+#elif defined(MEDDPI)
+#  define FONT_SIZE 20
 #else
 #  define FONT_SIZE 25
 #endif
