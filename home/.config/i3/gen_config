@@ -1,0 +1,18 @@
+#!/bin/bash
+
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+CONFIG_DIR="${DIR}/config.d/"
+
+function gen_config() {
+  echo "# DO NOT MODIFY DIRECTLY"
+  echo "# This file is generated automatically by: gen_config"
+  echo "# Edit the files in ${DIR}/config.d"
+  echo
+  for file in "${CONFIG_DIR}"*; do
+    echo "# ${file#$CONFIG_DIR}"
+    cat ${file}
+    echo
+  done
+}
+
+gen_config > ${DIR}/config
