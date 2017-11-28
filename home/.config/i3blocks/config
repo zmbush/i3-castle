@@ -41,6 +41,16 @@ instance=wlp2s0;out
 label=
 interval=1
 
+[bandwidth]
+instance=wlp4s0;in
+label=
+interval=1
+
+[bandwidth]
+instance=wlp4s0;out
+label=
+interval=1
+
 # Part 2
 
 #[countdown]
@@ -131,6 +141,11 @@ interval=10
 [network]
 label=
 instance=wlp2s0
+interval=10
+
+[network]
+label=
+instance=wlp4s0
 interval=10
 
 [ssid]
