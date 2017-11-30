@@ -3,6 +3,5 @@
 #   include "hidpi"
 #endif
 
-#include "urxvt"
 #include "urxvt.interface"
 #include "urxvt.solarized"
