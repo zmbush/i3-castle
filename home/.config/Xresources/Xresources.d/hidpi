@@ -1,5 +1,5 @@
 #ifdef MEDDPI
-Xft.dpi: 144
+Xft.dpi: 120
 #else
 Xft.dpi: 220
 #endif
