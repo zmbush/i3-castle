@@ -51,6 +51,16 @@ instance=wlp4s0;out
 label=
 interval=1
 
+[bandwidth]
+instance=em1;in
+label=
+interval=1
+
+[bandwidth]
+instance=em1;out
+label=
+interval=1
+
 # Part 2
 
 #[countdown]
@@ -136,6 +146,11 @@ interval=30
 [network]
 label=
 instance=enp4s0f2
+interval=10
+
+[network]
+label=
+instance=em1
 interval=10
 
 [network]
