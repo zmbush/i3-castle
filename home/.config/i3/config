@@ -1,6 +1,6 @@
 # DO NOT MODIFY DIRECTLY
 # This file is generated automatically by: gen_config
-# Edit the files in /home/zmbush/.config/i3/config.d
+# Edit the files in /usr/local/google/home/zmbush/.config/i3/config.d
 
 # 00.variables.config
 set_from_resource $darkred     URxvt.color1  #000000
@@ -25,6 +25,7 @@ set $transparent #00000000
 set $mod Mod4
 
 set $i3bar i3bar
+set $strip_workspace_numbers yes
 
 # 05.early_exec.config
 exec_always --no-startup-id xrdb -merge ~/.Xresources
@@ -178,11 +179,10 @@ bindsym XF86AudioNext exec mpc next
 bindsym XF86AudioPrev exec mpc previous
 
 # 20.i3-gaps.config
-for_window [class="^.*$"] border pixel 3
-smart_borders on
-gaps inner 10
+# I3 Gaps Disabled
 
-set $i3bar i3bar -t
+# 40.pre-ui.config
+set $strip_workspace_numbers no
 
 # 50.ui.config
 # class                 border  backgr. text    indicator
@@ -218,7 +218,7 @@ bar {
 bar {
   position top
 
-  strip_workspace_numbers yes
+  strip_workspace_numbers $strip_workspace_numbers
   status_command i3blocks -c ~/.config/i3blocks/top
   i3bar_command $i3bar
   colors {
@@ -242,14 +242,19 @@ assign [class="Alot"] 9
 
 for_window [class="URxvt" instance="nmtui"] floating enable
 
+# 99.google.config
+exec /usr/share/goobuntu-indicator/goobuntu_indicator.py
+exec /google/data/ro/projects/devtools/blaze_notify/blaze_notify.par
+exec /usr/local/google/home/zmbush/.screenlayout/default.sh
+
 # 99.startup_applications.config
 # Startup Applications
-exec env KEYBASE_START_UI=hideWindow run_keybase
-exec /usr/bin/syncthing -no-browser -home="$HOME/.config/syncthing"
-exec /usr/bin/syncthing-gtk
+exec --no-startup-id env KEYBASE_START_UI=hideWindow run_keybase
+exec --no-startup-id /usr/bin/syncthing -no-browser -home="$HOME/.config/syncthing"
+exec --no-startup-id /usr/bin/syncthing-gtk
 
 exec --no-startup-id i3-msg 'workspace 1'
-exec --no-startup-id firefox
+exec --no-startup-id $HOME/bin/firefox/firefox &
 exec --no-startup-id google-chrome --app-id=icppfcnhkcmnfdhfhphakoifcfokfdhg
-exec_always ~/.config/i3/i3-autoname-workspaces.py &
+exec_always --no-startup-id ~/.config/i3/i3-autoname-workspaces.py &
 
