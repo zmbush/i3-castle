@@ -247,6 +247,8 @@ exec /usr/share/goobuntu-indicator/goobuntu_indicator.py
 exec /google/data/ro/projects/devtools/blaze_notify/blaze_notify.par
 exec /usr/local/google/home/zmbush/.screenlayout/default.sh
 
+for_window [title="QEMU"] floating enable
+
 # 99.startup_applications.config
 # Startup Applications
 exec --no-startup-id env KEYBASE_START_UI=hideWindow run_keybase
