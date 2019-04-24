@@ -48,30 +48,30 @@ from util import *
 WINDOW_ICONS = {
     'atom': fa.icons['code'],
     'cura': fa.icons['cube'],
-    'darktable': fa.icons['picture-o'],
-    'evince': fa.icons['file-pdf-o'],
-    'feh': fa.icons['picture-o'],
+    'darktable': fa.icons['image'],
+    'evince': fa.icons['file-pdf'],
+    'feh': fa.icons['image'],
     'google-chrome': fa.icons['chrome'],
     'google-chrome-beta': fa.icons['chrome'],
     'crx_icppfcnhkcmnfdhfhphakoifcfokfdhg': fa.icons['music'], # Google play music
     'gmpc': fa.icons['music'],
-    'gpick': fa.icons['eyedropper'],
-    'libreoffice': fa.icons['file-text-o'],
-    'mupdf': fa.icons['file-pdf-o'],
+    'gpick': fa.icons['eye-dropper'],
+    'libreoffice': fa.icons['file-word'],
+    'mupdf': fa.icons['file-pdf'],
     'spotify': fa.icons['music'],  # could also use the 'spotify' icon
-    'subl': fa.icons['file-text-o'],
-    'subl3': fa.icons['file-text-o'],
-    'thunar': fa.icons['files-o'],
-    'nautilus': fa.icons['files-o'],
+    'subl': fa.icons['file-word'],
+    'subl3': fa.icons['file-word'],
+    'thunar': fa.icons['file'],
+    'nautilus': fa.icons['file'],
     'urxvt': fa.icons['terminal'],
     'gnome-terminal': fa.icons['terminal'],
     'xfce4-terminal': fa.icons['terminal'],
-    'thunderbird': fa.icons['envelope-o'],
+    'thunderbird': fa.icons['envelope'],
     'zenity': fa.icons['window-maximize'],
 
     'vim': fa.icons['code'],
     'nf': fa.icons['server'],
-    'alot': fa.icons['envelope-o'],
+    'alot': fa.icons['envelope'],
 }
 
 # This icon is used for any application not in the list above
