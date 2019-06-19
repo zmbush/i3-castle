@@ -56,13 +56,13 @@ WINDOW_ICONS = {
     'crx_icppfcnhkcmnfdhfhphakoifcfokfdhg': fa.icons['music'], # Google play music
     'gmpc': fa.icons['music'],
     'gpick': fa.icons['eye-dropper'],
-    'libreoffice': fa.icons['file-word'],
+    'libreoffice': fa.icons['file-alt'],
     'mupdf': fa.icons['file-pdf'],
     'spotify': fa.icons['music'],  # could also use the 'spotify' icon
-    'subl': fa.icons['file-word'],
-    'subl3': fa.icons['file-word'],
-    'thunar': fa.icons['file'],
-    'nautilus': fa.icons['file'],
+    'subl': fa.icons['file-alt'],
+    'subl3': fa.icons['file-alt'],
+    'thunar': fa.icons['folder'],
+    'nautilus': fa.icons['folder'],
     'urxvt': fa.icons['terminal'],
     'gnome-terminal': fa.icons['terminal'],
     'xfce4-terminal': fa.icons['terminal'],
