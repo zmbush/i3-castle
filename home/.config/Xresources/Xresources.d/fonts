@@ -13,7 +13,13 @@ Xft.rgba: rgb
 #  define FONT_SIZE 25
 #endif
 
-URxvt*font: xft:Ubuntu\ Mono\ derivative\ Powerline:pixelsize=FONT_SIZE:antialias=true:hinting=full,xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=FONT_SIZE:antialias=true:hinting=full
-URxvt*boldFont: xft:Ubuntu\ Mono\ derivative\ Powerline:style=bold:pixelsize=FONT_SIZE:antialias=true:hinting=full,xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=FONT_SIZE:antialiaz=true:hintig=full
+#define NOTO_MONO xft:Noto\ Color\ Emoji
+#define UBUNTU_MONO xft:Ubuntu\ Mono\ derivative\ Powerline:pixelsize=FONT_SIZE:antialias=true:hinting=full
+#define DEJA_VU_SANS xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=FONT_SIZE:antialias=true:hinting=full
+
+URxvt.font:        xft:Ubuntu Mono derivative Powerline:pixelsize=FONT_SIZE:antialias=true:hinting=true, \
+                   xft:DejaVu\ Sans\ Mono\ for\ Powerline:pixelsize=FONT_SIZE:antialias=true:hinting=full, \
+                   xft:Symbola, \
+                   9x15
 
 *font: Ubuntu Mono FONT_SIZE
